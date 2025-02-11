@@ -1,0 +1,48 @@
+[34m[2025-02-08T12:37:57.799Z], INFO: Info msg[39m 
+[33m[2025-02-08T12:37:57.803Z], WARNING: Warning msg[39m 
+[31m[2025-02-08T12:37:57.804Z], ERROR: Error msg[39m 
+[34m[2025-02-08T12:45:38.864Z], INFO: Info msg[39m 
+[33m[2025-02-08T12:45:38.865Z], WARNING: Warning msg[39m 
+[31m[2025-02-08T12:45:38.865Z], ERROR: Error msg[39m 
+[34m[2025-02-08T13:07:39.900Z], INFO: Info msg[39m 
+[33m[2025-02-08T13:07:39.901Z], WARNING: Warning msg[39m 
+[31m[2025-02-08T13:07:39.901Z], ERROR: Error msg[39m 
+[34m[2025-02-08T13:26:27.574Z], INFO: Info msg[39m 
+[33m[2025-02-08T13:26:27.575Z], WARNING: Warning msg[39m 
+[31m[2025-02-08T13:26:27.576Z], ERROR: Error msg[39m 
+[34m[2025-02-08T13:53:09.777Z], INFO: Info msg[39m 
+[33m[2025-02-08T13:53:09.779Z], WARNING: Warning msg[39m 
+[31m[2025-02-08T13:53:09.779Z], ERROR: Error msg[39m 
+[34m[2025-02-08T17:22:03.679Z], INFO: Info msg[39m 
+[33m[2025-02-08T17:22:03.680Z], WARNING: Warning msg[39m 
+[31m[2025-02-08T17:22:03.680Z], ERROR: Error: Error[39m 
+[34m[2025-02-08T17:22:05.728Z], INFO: Info msg[39m 
+[33m[2025-02-08T17:22:05.729Z], WARNING: Warning msg[39m 
+[31m[2025-02-08T17:22:05.729Z], ERROR: Error: Error[39m 
+[34m[2025-02-08T18:10:59.808Z], INFO: Info msg[39m 
+[33m[2025-02-08T18:10:59.809Z], WARNING: Warning msg[39m 
+[31m[2025-02-08T18:10:59.809Z], ERROR: PermissionException: Недостатньо прав для виконання операції[39m 
+[34m[2025-02-08T18:11:57.439Z], INFO: Info msg[39m 
+[31m[2025-02-08T18:11:57.440Z], ERROR: PermissionException: Недостатньо прав для виконання операції[39m 
+[33m[2025-02-08T18:11:57.440Z], WARNING: Warning msg1[39m 
+[34m[2025-02-08T18:12:00.864Z], INFO: Info msg[39m 
+[33m[2025-02-08T18:12:00.865Z], WARNING: Warning msg[39m 
+[31m[2025-02-08T18:12:00.865Z], ERROR: PermissionException: Недостатньо прав для виконання операції[39m 
+[33m[2025-02-08T18:13:24.766Z], WARNING: Warning msg[39m 
+[34m[2025-02-08T18:13:24.765Z], INFO: Info msg[39m 
+[34m[2025-02-11T13:46:55.037Z], INFO: Info msgfd[39m 
+[34m[2025-02-11T13:47:19.140Z], INFO: Hello World[39m 
+[34m[2025-02-11T13:47:38.247Z], INFO: Hello World[39m 
+[34m[2025-02-11T14:10:29.633Z], INFO: Hello World[39m 
+[34m[2025-02-11T14:10:30.055Z], INFO: Hello World[39m 
+[34m[2025-02-11T14:10:41.618Z], INFO: Hello World2[39m 
+[34m[2025-02-11T14:10:55.203Z], INFO: Hello World2tr[39m 
+[34m[2025-02-11T14:32:27.368Z], INFO: Hello World[39m
+[34m[2025-02-11T14:32:52.202Z], INFO: Hello World[39m
+[31m[2025-02-11T14:32:52.204Z], ERROR: undefined[39m
+[31m[2025-02-11T14:32:53.300Z], ERROR: [39m
+[34m[2025-02-11T14:32:53.297Z], INFO: Hello World[39m
+[31m[2025-02-11T14:32:55.315Z], ERROR: Type[39m
+[34m[2025-02-11T14:32:55.313Z], INFO: Hello World[39m
+[34m[2025-02-11T14:33:02.657Z], INFO: Hello World[39m
+[31m[2025-02-11T14:33:02.659Z], ERROR: Type[39m
