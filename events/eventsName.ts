@@ -1,3 +1,3 @@
-export const events = {
-	LOGWRITING_EVENT: 'eventLogWriting',
-};
+export const enum EVENTS_NAMES {
+	LOGWRITING_EVENT = 'eventLogWriting',
+}

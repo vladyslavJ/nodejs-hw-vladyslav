@@ -1,16 +1,13 @@
-import dotenv from 'dotenv';
-dotenv.config();
 import fs from 'fs';
 import path from 'path';
 import levels from './levels.ts';
 import formatMessage from './formatter.ts';
 import emitter from '../events/emitter.ts';
-import { events } from '../events/eventsName.ts';
-
-const LOG_PATH = process.env.LOG_PATH || 'logs/app.log';
+import { EVENTS_NAMES } from '../events/eventsName.ts';
+import { ENV } from '../env.ts';
 
 class Logger {
-	constructor(private logPath: string = LOG_PATH) {
+	constructor(private logPath: string = ENV.LOG_PATH) {
 		this.logPath = logPath;
 
 		if (!fs.existsSync(path.dirname(this.logPath))) {
@@ -21,9 +18,9 @@ class Logger {
 	private __log(level: levels, msg: string | Error) {
 		const fromattedMsg = formatMessage(level, msg);
 		console.log(fromattedMsg);
-		
+
 		try {
-			emitter.emit(events.LOGWRITING_EVENT, fromattedMsg);
+			emitter.emit(EVENTS_NAMES.LOGWRITING_EVENT, fromattedMsg);
 		} catch (err) {
 			console.log('Failed to emit log event...');
 		}
