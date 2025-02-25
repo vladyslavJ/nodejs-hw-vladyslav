@@ -5,3 +5,5 @@ import Logger from './logger/logger.ts';
 const logger = new Logger();
 
 logger.info('Hello World');
+logger.warning('Err?');
+logger.error('Error!');
