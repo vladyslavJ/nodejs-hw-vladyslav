@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import levels from './levels.ts';
-import formatMessage from './formatter.ts';
 import emitter from '../events/emitter.ts';
 import { EVENTS_NAMES } from '../events/eventsName.ts';
 import { ENV } from '../env.ts';
@@ -16,11 +15,13 @@ class Logger {
 	}
 
 	private __log(level: levels, msg: string | Error) {
-		const fromattedMsg = formatMessage(level, msg);
-		console.log(fromattedMsg);
+		const obj = {
+			msg,
+			level,
+		};
 
 		try {
-			emitter.emit(EVENTS_NAMES.LOGWRITING_EVENT, fromattedMsg);
+			emitter.emit(EVENTS_NAMES.LOGWRITING_EVENT, obj);
 		} catch (err) {
 			console.log('Failed to emit log event...');
 		}
