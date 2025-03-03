@@ -1,0 +1,20 @@
+{
+	"name": "hw",
+	"type": "module",
+	"version": "0.0.1",
+	"description": "hillel-nodejs-hw",
+	"main": "homework.js",
+	"scripts": {
+		"start": "npx tsx --watch ./app.ts"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"chalk": "^5.4.1",
+		"dotenv": "^16.4.7",
+		"express": "^4.21.2",
+		"ts": "^0.2.2",
+		"ts-node": "^10.9.2",
+		"typescript": "^3.9.10"
+	}
+}
