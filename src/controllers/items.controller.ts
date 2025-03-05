@@ -28,6 +28,7 @@ export const updateStatus = (req: Request, res: Response) => {
 		item.status = status;
 		res.status(200).send('Status updated');
 	} else {
+		// перевірка на відсутність елемента
 		res.status(404).send('Item not found');
 	}
 };
@@ -38,6 +39,7 @@ export const deleteItems = (req: Request, res: Response) => {
 	const index = itemsModel.findIndex((item) => item.id === parseInt(itemId));
 
 	if (index !== -1) {
+		// перевірка на відсутність елемента
 		itemsModel.splice(index, 1);
 		res.status(200).send('Item deleted');
 	} else {

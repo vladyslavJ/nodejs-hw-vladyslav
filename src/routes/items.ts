@@ -5,14 +5,18 @@ import {
 	reviewItems,
 	updateStatus,
 	deleteItems,
-} from '../../controllers/itemsController.ts';
+} from '../controllers/items.controller.ts';
+import {
+	createItemSchema,
+	updateItemSchema,
+} from '../validators/item.validator.ts';
 
 export const itemsRouter = Router();
 const logger = new Logger();
 
 itemsRouter
 	.route('/')
-	.post((req, res) => {
+	.post(createItemSchema, (req, res) => {
 		addItems(req, res);
 		logger.info('POST /items');
 	})
@@ -23,7 +27,7 @@ itemsRouter
 
 itemsRouter
 	.route('/:itemId')
-	.put((req, res) => {
+	.put(updateItemSchema, (req, res) => {
 		updateStatus(req, res);
 		logger.info('PUT /items/:itemId');
 	})
