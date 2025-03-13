@@ -1,48 +1,61 @@
 import { Request, Response } from 'express';
-import { itemsModel } from '../models/itemsModel';
+import { Item } from '../models/itemsModel.ts';
 
-/* додати нові таски,  (POST /items) */
-export const addItems = (req: Request, res: Response) => {
-	const newItem = {
-		id: itemsModel.length + 1,
-		text: req.body.text,
-		status: 'new',
-	};
+/* додати нові таски (POST /items) */
+export const addItems = async (req: Request, res: Response) => {
+	try {
+		const newItem = await Item.create({
+			text: req.body.text,
+			status: 'new',
+		});
 
-	itemsModel.push(newItem);
-	res.status(201).send('Item added');
-};
-
-/* переглянути існуючі,  (GET /items) */
-export const reviewItems = (req: Request, res: Response) => {
-	res.json(itemsModel);
-};
-
-/* міняти статус (new/done)  (PUT /items/:itemId) */
-export const updateStatus = (req: Request, res: Response) => {
-	const { itemId } = req.params; // динамічні параметри шляху { itemId: "123" }
-	const { status } = req.body;
-	const item = itemsModel.find((item) => item.id === parseInt(itemId));
-
-	if (item) {
-		item.status = status;
-		res.status(200).send('Status updated');
-	} else {
-		// перевірка на відсутність елемента
-		res.status(404).send('Item not found');
+		res.status(201).json(newItem);
+	} catch (error) {
+		res.status(500).json({ error: 'Помилка створення завдання' });
 	}
 };
 
-/* видаляти таски (DELETE /items/:itemId) */
-export const deleteItems = (req: Request, res: Response) => {
-	const { itemId } = req.params;
-	const index = itemsModel.findIndex((item) => item.id === parseInt(itemId));
+/* переглянути всі таски (GET /items) */
+export const reviewItems = async (req: Request, res: Response) => {
+	try {
+		const items = await Item.findAll();
+		
+		res.json(items);
+	} catch (error) {
+		res.status(500).json({ error: 'Помилка отримання даних' });
+	}
+};
 
-	if (index !== -1) {
-		// перевірка на відсутність елемента
-		itemsModel.splice(index, 1);
-		res.status(200).send('Item deleted');
-	} else {
-		res.status(404).send('Item not found');
+/* змінити статус таска (PUT /items/:itemId) */
+export const updateStatus = async (req: Request, res: Response) => {
+	try {
+		const { itemId } = req.params;
+		const { status } = req.body;
+		const item = await Item.findByPk(itemId, { raw: false });
+
+		if (!item) {
+			return res.status(404).json({ message: 'Завдання не знайдено' });
+		}
+
+		await item.update({ status });
+
+		res.json({ message: 'Статус оновлено' });
+	} catch (error) {
+		res.status(500).json({ error: 'Помилка оновлення' });
+	}
+};
+
+/* видалити таск (DELETE /items/:itemId) */
+export const deleteItems = async (req: Request, res: Response) => {
+	try {
+		const { itemId } = req.params;
+		const deletedCount = await Item.destroy({ where: { id: itemId } });
+
+		if (deletedCount === 0)
+			return res.status(404).json({ message: 'Завдання не знайдено' });
+
+		res.json({ message: 'Завдання видалено' });
+	} catch (error) {
+		res.status(500).json({ error: 'Помилка видалення' });
 	}
 };
